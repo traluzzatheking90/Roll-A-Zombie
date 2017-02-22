@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	private int selectedZombiePosistion = 0;
+	private int maxZombiePosition;
 	public Text scoreText;
 	private int score = 0;
 	public GameObject selectedZombie;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		CheckZombiePosition ();
+
 		if (Input.GetKeyDown ("left")){
 			GetZombieLeft ();
 		}
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour {
 			GetZombieRight ();
 		}
 
-		if(Input.GetKeyDown ("up")){
+		if(Input.GetKeyDown ("up") || Input.GetKeyDown("w")){
 			PushUp ();
 		}
 
@@ -39,9 +42,11 @@ public class GameManager : MonoBehaviour {
 
 	void GetZombieLeft () {
 
+		maxZombiePosition = zombies.Count - 1;
+
 		if (selectedZombiePosistion == 0) {
-			selectedZombiePosistion = 3;
-			SelectZombie (zombies [3]);
+			selectedZombiePosistion = maxZombiePosition;
+			SelectZombie (zombies [maxZombiePosition]);
 		} else {
 			selectedZombiePosistion = selectedZombiePosistion - 1;
 			GameObject newZombie = zombies [selectedZombiePosistion];
@@ -52,7 +57,9 @@ public class GameManager : MonoBehaviour {
 
 	void GetZombieRight () {
 
-		if (selectedZombiePosistion == 3) {
+		maxZombiePosition = zombies.Count - 1;
+
+		if (selectedZombiePosistion == maxZombiePosition) {
 			selectedZombiePosistion = 0;
 			SelectZombie (zombies [0]);
 		} else {
@@ -74,6 +81,14 @@ public class GameManager : MonoBehaviour {
 
 		Rigidbody rb = selectedZombie.GetComponent<Rigidbody> ();
 		rb.AddForce (0, 0, 10, ForceMode.Impulse);  // Verctor force in 3d
+	}
+
+	void CheckZombiePosition() {
+		for(int i = 0; i < zombies.Count; i++){
+			if(zombies[i].transform.position.y < 0.1f) {
+				zombies.RemoveAt (i);
+			}
+		}
 	}
 
 	public void AddPoint() {

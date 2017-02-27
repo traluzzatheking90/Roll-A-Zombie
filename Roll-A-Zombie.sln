@@ -1,7 +1,8 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roll-A-Zombie", "Assembly-CSharp.csproj", "{E3EE867B-51EC-8851-3ADA-1C722E17AB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roll-A-Zombie", "Assembly-CSharp-Editor-firstpass.csproj", "{2C1F4D97-AFF5-0C23-1A01-CDF77484ED06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +14,10 @@ Global
 		{E3EE867B-51EC-8851-3ADA-1C722E17AB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3EE867B-51EC-8851-3ADA-1C722E17AB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3EE867B-51EC-8851-3ADA-1C722E17AB9D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{2C1F4D97-AFF5-0C23-1A01-CDF77484ED06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1F4D97-AFF5-0C23-1A01-CDF77484ED06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1F4D97-AFF5-0C23-1A01-CDF77484ED06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1F4D97-AFF5-0C23-1A01-CDF77484ED06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
